@@ -1,24 +1,98 @@
+$base-spacing: 2em;
+$small-spacing: $base-spacing / 2;
+$base-border: 1px solid darken(white, 8);
+
 body {
-  background-color: #fbc547;
-  color: #333;
-  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir",
-    "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans",
-    "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu",
-    "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
-  padding: 18vh 1rem;
-  text-align: center;
+	background-color: #e7e7e7;
+	color: #333;
+	font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir",
+	"Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans",
+	"Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu",
+	"Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+	text-align: center;
 }
 
-a {
-  color: rgba(#000, 0.7);
+section.header {
+	height: 100vh;
+	background-image: url('../images/car.jpg');
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
 
-  &:focus,
-  &:hover {
-    color: rgba(#000, 0.6);
-  }
+	h1 {
+		color: white;
+	}
+
+	figure {
+		padding: $base-spacing;
+		background-color: white;
+		border: $base-border;
+		img {
+			max-width:25%;
+			border-radius:50%;
+		}
+	}
+
 }
+section.about {
+	h1 {
+		text-align: center;
+		vertical-align: top;
+	}
+	height: 100vh;
+	background-color: white;
+	display: flex;
+	flex-flow: column nowrap;
+}
+section.skills {
+	h1 {
+		text-align: center;
+		vertical-align: top;
+	}
 
-.middleman-logo {
-  margin-bottom: 1rem;
-  width: 10rem;
+	height: 100vh;
+	background-color: white;
+	display: flex;
+	flex-flow: column nowrap;
+}
+section.cv {
+	height: 100vh;
+	background-color: white;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+}
+section.projects {
+	height: 100vh;
+	background-color: white;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+}
+section.contact {
+	height: 100vh;
+	background-color: white;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+}
+section.footer {
+	height: 25vh;
+	background-color: black;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+}
+.grid {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+.gridelement {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	max-width:20%;
+
 }
