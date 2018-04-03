@@ -90,9 +90,37 @@ section.footer {
 	justify-content: space-around;
 }
 .gridelement {
+	img {
+	align-self: center;
+	}
 	display: flex;
 	flex-flow: column wrap;
-	justify-content: center;
-	max-width:20%;
+	max-width:15%;
 
+}
+/* The navigation bar */
+.navbar {
+    overflow: hidden;
+    background-color: white;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+/* Links inside the navbar */
+.navbar a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+    background: #ddd;
+    color: black;
 }
