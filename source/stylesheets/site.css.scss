@@ -17,7 +17,7 @@ body {
 
 section.header {
 	height: 100vh;
-	background-size: cover; /* or contain depending on what you want */
+	background-size: cover;
   	background-position: center center;
   	background-repeat: no-repeat;
 	background-image: url('../images/h.jpg');
@@ -33,9 +33,10 @@ section.header {
 	figure {
 		padding: $base-spacing;
 		background-color: white;
-		border: $base-border;
+		border: 3px solid darken(white, 8);
+
 		img {
-			max-width:25%;
+			max-width:35%;
 			border-radius:50%;
 		}
 	}
@@ -136,7 +137,7 @@ section.footer {
 
 .projelement {
 	img{
-		max-width:50%;
+		max-width:47%;
 		max-height:30%;	
 		border-radius:30px;
 	}
