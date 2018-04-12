@@ -2,83 +2,144 @@
 title: Jovan
 ---
 <a name="header">
-<div class="navbar">
-  <a href="#header">home</a>
-  <a href="#about">about</a>
-  <a href="#skills">skills</a>
-  <a href="#cv">cv</a>
-  <a href="#projects">projects</a>
-  <a href="#contact">contact</a>
-</div>
+	<div class="navbar">
+		<a href="#header">home</a>
+		<a href="#about">about</a>
+		<a href="#skills">skills</a>
+		<a href="#cv">cv</a>
+		<a href="#portfolio">portfolio</a>
+		<a href="#contact">contact</a>
+	</div>
 
-<section class="header">
-	<figure>
-		<image src='./images/car.jpg' alt='profilepic'>
-	</figure>
+	<section class="header">
+		<figure>
+			<image src='./images/car.jpg' alt='profilepic'>
+		</figure>
 
-	<h1>This is the personal site of Jovan Werbes</h1>
-</section>
+		<h1>This is the personal site of Jovan Werbes</h1>
+	</section>
 
-<section class="about">
-	<h1><a name="about">About</h1>
-	<p>
-	I am a UBC computer science graduate looking for work in software development. In my spare time I enjoy making music, graphic design, outdoor activities and fitness. My best friend is a meathead dog named Brutus.
-	</p>
-</section>
-<section class="skills">
-	<h1><a name="skills">Skills</h1>
+	<section class="about">
+		<h1><a name="about">About</h1>
+		<p>
+		I am a UBC computer science graduate looking for work in software development. In my spare time I enjoy making music, graphic design, outdoor activities and fitness. My best friend is a meathead dog named Brutus.
+		</p>
+		<figure>
+			<image src='./images/car.jpg' alt='profilepic'>
+		</figure>
 
-	<div class="grid">
-		<div class="gridelement">
-			<img src='./images/pslogo.jpg' alt='pslogo'>
-			<h2>
-				Photoshop
-			</h2>
-			<p>I have worked with photoshop for around 5 years and am comfortable using it.</p>
+	</section>
+	<section class="skills">
+		<h1><a name="skills">Skills</h1>
+
+		<div class="grid">
+			<div class="gridelement">
+				<img src='./images/pslogo.jpg' alt='pslogo'>
+				<h2>
+					Photoshop
+				</h2>
+				<p>I have worked with photoshop for around 5 years and am comfortable using it.</p>
+			</div>
+			<div class="gridelement">
+				<img src='./images/html.png' alt='htmlogo'>
+				<h2>
+					HTML & CSS
+				</h2>
+				<p>I am proficient in HTML & CSS and built this site from scratch.</p>
+			</div>
+			<div class="gridelement">
+				<img src='./images/google.png' alt='gologo'>
+				<h2>
+					Go (Golang)
+				</h2>
+				<p>I have built a few distributed systems with golang including a blockchain based art network and tor based torrenting network.</p>
+			</div>
+			<div class="gridelement">
+				<img src='./images/ruby.png' alt='rubylogo'>
+				<h2>
+					Ruby
+				</h2>
+				<p>I have worked with Ruby and Ruby on Rails.</p>
+			</div>
+			<div class="gridelement">
+				<img src='./images/java.png' alt='javalogo'>
+				<h2>
+					Java
+				</h2>
+				<p>I have worked extensively with java.</p>
+			</div>
+
+		</div>	
+	</section>
+	<section class="jtime">
+
+		<div class="container">
+			<h1><a name="cv">My Timeline</h1>
 		</div>
-		<div class="gridelement">
+	</section>
 
-			<h2>
-				HTML & CSS
-			</h2>
-			<p>I am proficient in HTML & CSS and built this site from scratch.</p>
+	<section class="timeline">
+		<ol>
+			<li>
+				<div>
+					<time>2012</time> Graduated from Seycove Secondary, started at UBC in arts. </div>
+			</li>
+			<li>
+				<div>
+					<time>2014</time> Found true calling and switched to computer science. </div>
+			</li>
+			<li>
+				<div>
+					<time>2018</time> Graduated from UBC computer science, built this webiste.      </div>
+			</li>
+			<li>
+				<div>
+					<time>2019</time> Started working for your sweet company. </div>
+			</li>
+			<li>
+				<li></li>
+		</ol>
+
+		<div class="arrows">
+			<button class="arrow arrow__prev disabled" disabled>
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow_prev.svg" alt="prev timeline arrow">
+			</button>
+			<button class="arrow arrow__next">
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow_next.svg" alt="next timeline arrow">
+			</button>
 		</div>
-		<div class="gridelement">
-			<h2>
-				Go (Golang)
-			</h2>
-			<p>I have built a few distributed systems with golang including a blockchain based art network and tor based torrenting network.</p>
+	</section>
+
+	<section class="portfolio">
+		<h1><a name="portfolio">Portfolio</h1>
+		<div class="grid">
+			<div class="projelement">
+				<a href="https://google.com">
+					<img src="./images/torproj.png" alt="torproj">
+				</a>
+				<a href="https://google.com">
+					<img src="./images/mesh.png" alt="butterfly mesh">
+				</a>
+
+			</div>
+
 		</div>
-		<div class="gridelement">
-			<h2>
-				Ruby
-			</h2>
-			<p>I have worked with Ruby and Ruby on Rails.</p>
+	</section>
+	<section class="contact">
+		<h1><a name="contact">Contact</h1>
+		<div class="conform">
+
+				<input type="text" id="fname" name="firstname" placeholder="Your name/company name">
+
+				<textarea id="subject" name="subject" placeholder="Message body" style="height:200px"></textarea>
+
+				<input type="submit" value="Submit">
+
 		</div>
-		<div class="gridelement">
-			<h2>
-				Java
-			</h2>
-			<p>I have worked extensively with java</p>
-		</div>
-
-	</div>	
-
-
-
-</section>
-<section class="cv">
-	<h1><a name="cv">Curriculum Vitae</h1>
-</section>
-<section class="projects">
-	<h1><a name="projects">Projects</h1>
-</section>
-<section class="contact">
-	<h1><a name="contact">Contact</h1>
-</section>
-<section class="footer">
-	<p>
-	Designed and Built by Jovan Werbes © 2018
-	</p>
-	<!---picture-of-brutus--->
-</section>
+	</section>
+	<section class="footer">
+		<p>
+		Designed and Built by Jovan Werbes © 2018
+		</p>
+		<!---small-picture-of-brutus--->
+	</section>

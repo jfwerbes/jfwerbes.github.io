@@ -5,16 +5,22 @@ $base-border: 1px solid darken(white, 8);
 body {
 	background-color: #e7e7e7;
 	color: #333;
+	background: #282832;
 	font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir",
 	"Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans",
 	"Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu",
 	"Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
 	text-align: center;
+	padding: 0;
+	margin: 0;
 }
 
 section.header {
 	height: 100vh;
-	background-image: url('../images/car.jpg');
+	background-size: cover; /* or contain depending on what you want */
+  	background-position: center center;
+  	background-repeat: no-repeat;
+	background-image: url('../images/h.jpg');
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
@@ -36,14 +42,32 @@ section.header {
 
 }
 section.about {
+	height: 40vh;
+	background-color: white;
+	display: flex;
+	flex-flow: column nowrap;
+
+
 	h1 {
 		text-align: center;
 		vertical-align: top;
 	}
-	height: 100vh;
-	background-color: white;
-	display: flex;
-	flex-flow: column nowrap;
+	p {
+		text-align: center;
+		vertical-align: inherit;
+		max-width: 60%;
+		margin: 0 auto;
+	}
+
+	figure {
+		padding: $base-spacing;
+		background-color: white;
+		img {
+			max-width:25%;
+			border-radius:50%;
+		}
+	}
+
 }
 section.skills {
 	h1 {
@@ -55,15 +79,10 @@ section.skills {
 	background-color: white;
 	display: flex;
 	flex-flow: column nowrap;
+	justify-content: space-around;
 }
-section.cv {
-	height: 100vh;
-	background-color: white;
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: center;
-}
-section.projects {
+
+section.portfolio {
 	height: 100vh;
 	background-color: white;
 	display: flex;
@@ -91,36 +110,269 @@ section.footer {
 }
 .gridelement {
 	img {
-	align-self: center;
+		align-self: center;
 	}
 	display: flex;
 	flex-flow: column wrap;
 	max-width:15%;
 
+	p {
+		justify-content: space-around;
+	}
+
 }
+.conform {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	input {
+		width: 60%;
+	}
+	textarea {
+		width: 60%;
+	}
+}
+
+.projelement {
+	img{
+		max-width:50%;
+		max-height:30%;	
+		border-radius:30px;
+	}
+}
+
 /* The navigation bar */
 .navbar {
-    overflow: hidden;
-    background-color: white;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
+	overflow: hidden;
+	position: fixed; /* Set the navbar to fixed position */
+	background: white;
+	top: 0%; /* Position the navbar at the top of the page */
+	width: 100%; /* Full width */
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
 }
+
 
 /* Links inside the navbar */
 .navbar a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px;
-    text-decoration: none;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px;
+	text-decoration: none;
 }
 
 /* Change background on mouse-over */
 .navbar a:hover {
-    background: #ddd;
-    color: black;
+	color: red;
+}
+
+button {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	outline: none;
+}
+
+/* javascript timeline */
+.jtime {
+	background: #c8be64;
+	padding: 50px 0;
+	color: white;
+}
+
+.jtime .container {
+	width: 90%;
+	max-width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.jtime h1 {
+	font-size: 2.5rem;
+}
+
+.jtime h2 {
+	font-size: 1.3rem;
+}
+
+
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline {
+	white-space: nowrap;
+	overflow-x: hidden;
+}
+
+.timeline ol {
+	font-size: 0;
+	width: 100vw;
+	padding: 250px 0;
+	transition: all 1s;
+}
+
+.timeline ol li {
+	position: relative;
+	display: inline-block;
+	list-style-type: none;
+	width: 160px;
+	height: 3px;
+	background: #fff;
+}
+
+.timeline ol li:last-child {
+	width: 280px;
+}
+
+.timeline ol li:not(:first-child) {
+	margin-left: 14px;
+}
+
+.timeline ol li:not(:last-child)::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: calc(100% + 1px);
+	bottom: 0;
+	width: 12px;
+	height: 12px;
+	transform: translateY(-50%);
+	border-radius: 50%;
+	background: #c8be64;
+}
+
+.timeline ol li div {
+	position: absolute;
+	left: calc(100% + 7px);
+	width: 280px;
+	padding: 15px;
+	font-size: 1rem;
+	white-space: normal;
+	color: black;
+	background: white;
+}
+
+.timeline ol li div::before {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-style: solid;
+}
+
+.timeline ol li:nth-child(odd) div {
+	top: -16px;
+	transform: translateY(-100%);
+}
+
+.timeline ol li:nth-child(odd) div::before {
+	top: 100%;
+	border-width: 8px 8px 0 0;
+	border-color: white transparent transparent transparent;
+}
+
+.timeline ol li:nth-child(even) div {
+	top: calc(100% + 16px);
+}
+
+.timeline ol li:nth-child(even) div::before {
+	top: -8px;
+	border-width: 8px 0 0 8px;
+	border-color: transparent transparent transparent white;
+}
+
+.timeline time {
+	display: block;
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+
+/* TIMELINE ARROWS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline .arrows {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.timeline .arrows .arrow__prev {
+	margin-right: 20px;
+}
+
+.timeline .disabled {
+	opacity: .5;
+}
+
+.timeline .arrows img {
+	width: 45px;
+	height: 45px;
+}
+
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (max-width: 599px) {
+	.timeline ol,
+	.timeline ol li {
+		width: auto;
+	}
+
+	.timeline ol {
+		padding: 0;
+		transform: none !important;
+	}
+
+	.timeline ol li {
+		display: block;
+		height: auto;
+		background: transparent;
+	}
+
+	.timeline ol li:first-child {
+		margin-top: 25px;
+	}
+
+	.timeline ol li:not(:first-child) {
+		margin-left: auto;
+	}
+
+	.timeline ol li div {
+		width: 94%;
+		height: auto !important;
+		margin: 0 auto 25px;
+	}
+
+	.timeline ol li div {
+		position: static;
+	}
+
+	.timeline ol li:nth-child(odd) div {
+		transform: none;
+	}
+
+	.timeline ol li:nth-child(odd) div::before,
+	.timeline ol li:nth-child(even) div::before {
+		left: 50%;
+		top: 100%;
+		transform: translateX(-50%);
+		border: none;
+		border-left: 1px solid white;
+		height: 25px;
+	}
+
+	.timeline ol li:last-child,
+	.timeline ol li:nth-last-child(2) div::before,
+	.timeline ol li:not(:last-child)::after,
+	.timeline .arrows {
+		display: none;
+	}
 }
