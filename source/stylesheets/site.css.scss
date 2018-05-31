@@ -43,7 +43,7 @@ section.header {
 
 }
 section.about {
-	height: 40vh;
+	min-height: 40vh;
 	background-color: white;
 	display: flex;
 	flex-flow: column nowrap;
@@ -76,7 +76,7 @@ section.skills {
 		vertical-align: top;
 	}
 
-	height: 100vh;
+	min-height: 100vh;
 	background-color: white;
 	display: flex;
 	flex-flow: column nowrap;
