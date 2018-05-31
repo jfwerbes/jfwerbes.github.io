@@ -6,26 +6,154 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Welcome to Middleman</title>
+    <title>Jovan</title>
     <link href="/stylesheets/site.css" rel="stylesheet" />
     <script src="/javascripts/site.js"></script>
   </head>
   <body>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 340" class="middleman-logo" aria-labelledby="middleman-logo__title" role="img">
-  <title id="middleman-logo__title">Middleman</title>
-  <path class="middleman-logo__top-left-bar" fill-opacity=".45" d="M0 40L200 0v30L0 60z"/>
-  <path class="middleman-logo__top-right-bar" fill="#fff" d="M200 0l200 40v20L200 30z"/>
-  <path class="middleman-logo__left-m" fill-opacity=".45" d="M0 78v184l45 5V152l45 83 47-83v129l53 7V52l-57 8-43 83-43-70z"/>
-  <path class="middleman-logo__right-m" fill="#fff" d="M400 78v184l-45 5V152l-45 83-47-83v129l-53 7V52l57 8 43 83 43-70z"/>
-  <path class="middleman-logo__bottom-left-bar" fill-opacity=".45" d="M0 300l200 40v-30L0 280z"/>
-  <path class="middleman-logo__bottom-right-bar" fill="#fff" d="M200 340l200-40v-20l-200 30z"/>
-</svg>
+    <a name="header">
+	<div class="navbar">
+		<a href="#header">home</a>
+		<a href="#about">about</a>
+		<a href="#skills">skills</a>
+		<a href="#cv">cv</a>
+		<a href="#portfolio">portfolio</a>
+		<a href="#contact">contact</a>
+	</div>
 
-<h1>
-  Middleman is Running
-</h1>
+	<section class="header">
+		<figure>
+			<image src='./images/jovan.jpg' alt='profilepic'>
+		</figure>
 
-<a href="https://middlemanapp.com/basics/templating_language/" target="_blank">Read Documentation</a>
+		<h1>This is the personal website of Jovan Werbes</h1>
+	</section>
+
+	<section class="about">
+		<h1><a name="about">About</h1>
+		<p>
+		I am a UBC computer science graduate looking for work in software development. In my spare time I enjoy making music, graphic design, outdoor activities and fitness. My best friend is a meathead dog named Brutus.
+		</p>
+		<figure>
+			<image src='./images/car.jpg' alt='profilepic'>
+		</figure>
+
+	</section>
+	<section class="skills">
+		<h1><a name="skills">Skills</h1>
+
+		<div class="grid">
+			<div class="gridelement">
+				<img src='./images/pslogo.jpg' alt='pslogo'>
+				<h2>
+					Photoshop
+				</h2>
+				<p>I have worked with photoshop for around 5 years and am comfortable using it.</p>
+			</div>
+			<div class="gridelement">
+				<img src='./images/html.png' alt='htmlogo'>
+				<h2>
+					HTML & CSS
+				</h2>
+				<p>I am proficient in HTML & CSS and built this site from scratch.</p>
+			</div>
+			<div class="gridelement">
+				<img src='./images/google.png' alt='gologo'>
+				<h2>
+					Go (Golang)
+				</h2>
+				<p>I have built a few distributed systems with golang including a blockchain based art network and a torrenting network that utilizes onion routing.</p>
+			</div>
+			<div class="gridelement">
+				<img src='./images/ruby.png' alt='rubylogo'>
+				<h2>
+					Ruby
+				</h2>
+				<p>I have worked with Ruby and Ruby on Rails.</p>
+			</div>
+			<div class="gridelement">
+				<img src='./images/java.png' alt='javalogo'>
+				<h2>
+					Java
+				</h2>
+				<p>I have worked extensively with java.</p>
+			</div>
+
+		</div>	
+	</section>
+	<section class="jtime">
+
+		<div class="container">
+			<h1><a name="cv">My Timeline</h1>
+		</div>
+	</section>
+
+	<section class="timeline">
+		<ol>
+			<li>
+				<div>
+					<time>2012</time> Graduated from Seycove Secondary, started at UBC in arts. </div>
+			</li>
+			<li>
+				<div>
+					<time>2014</time> Found true calling and switched to computer science. </div>
+			</li>
+			<li>
+				<div>
+					<time>2017</time> Started working for Ecomm as a 911 operator.</div>
+			</li>
+
+			<li>
+				<div>
+					<time>2018</time> Graduated from UBC computer science, built this webiste.      </div>
+			</li>
+			<li>
+				<div>
+					<time>2019</time> Started working for your sweet company. </div>
+			</li>
+				<li></li>
+		</ol>
+
+	</section>
+
+	<section class="portfolio">
+		<h1><a name="portfolio">Portfolio</h1>
+		<div class="grid">
+			<div class="projelement">
+				<a href="https://google.com">
+					<img src="./images/torproj.png" alt="torproj">
+				</a>
+				<a href="https://google.com">
+					<img src="./images/mesh.png" alt="butterfly mesh">
+				</a>
+				<a href="https://watr.herokuapp.com">
+					<img src="./images/watr.png" alt="watrproj">
+				</a>
+				<a href="https://watr.herokuapp.com">
+					<img src="./images/OneStreamsmall.jpg" alt="OneStream">
+				</a>
+			</div>
+
+		</div>
+	</section>
+	<section class="contact">
+		<h1><a name="contact">Contact</h1>
+		<div class="conform">
+
+				<input type="text" id="fname" name="firstname" placeholder="Your name/company name">
+
+				<textarea id="subject" name="subject" placeholder="Message body" style="height:200px"></textarea>
+
+				<input type="submit" value="Submit">
+
+		</div>
+	</section>
+	<section class="footer">
+		<p>
+		Designed and Built by Jovan Werbes © 2018
+		</p>
+		<!---small-picture-of-brutus--->
+	</section>
 
   </body>
 </html>
