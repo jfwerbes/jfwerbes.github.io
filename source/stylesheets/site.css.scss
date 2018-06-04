@@ -379,13 +379,12 @@ button {
 /*Grid
 ---------------------------------------*/
 .og-grid {
-	display: flex;
-        flex-flow: row nowrap;
-	list-style: none;
-	padding: 20px 0;
-	margin: 0 auto;
-	text-align: center;
 	width: 100%;
+	min-height: 40vh;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+
 }
 
 .og-grid li {
@@ -397,9 +396,9 @@ button {
 
 .og-grid li > a,
 .og-grid li > a img {
-	max-height: 50%;
-	max-width: 50%;
-	border: none;
+	max-height: 40vh;
+	max-width: 40vh;
+	border-radius: 20%;
 	outline: none;
 	display: block;
 	position: relative;
