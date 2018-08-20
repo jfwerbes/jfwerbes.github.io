@@ -32,6 +32,7 @@ section.header {
 	}
 
 	figure {
+		width: 90%;
 		padding: $base-spacing;
 		background-color: white;
 		border: 3px solid darken(white, 8);
@@ -44,7 +45,8 @@ section.header {
 
 }
 section.about {
-	min-height: 40vh;
+	padding-top: 10vh;
+	height: 40vh;
 	background-color: white;
 	display: flex;
 	flex-flow: column nowrap;
@@ -76,7 +78,8 @@ section.skills {
 		text-align: center;
 		vertical-align: top;
 	}
-
+	padding-top: 35vh;
+	padding-bottom: 20vh;
 	min-height: 100vh;
 	background-color: white;
 	display: flex;
@@ -85,6 +88,7 @@ section.skills {
 }
 
 section.portfolio {
+	padding-top: 20vh;
 	min-height: 10vh;
 	background-color: white;
 }
@@ -178,6 +182,7 @@ button {
 
 /* javascript timeline */
 .jtime {
+
 	background: #c8be64;
 	padding: 50px 0;
 	color: white;
