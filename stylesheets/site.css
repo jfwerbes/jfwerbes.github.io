@@ -31,6 +31,7 @@ section.header {
   section.header h1 {
     color: white; }
   section.header figure {
+    width: 90%;
     padding: 2em;
     background-color: white;
     border: 3px solid #ebebeb; }
@@ -39,7 +40,8 @@ section.header {
       border-radius: 50%; }
 
 section.about {
-  min-height: 40vh;
+  padding-top: 10vh;
+  height: 40vh;
   background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -64,6 +66,8 @@ section.about {
       border-radius: 50%; }
 
 section.skills {
+  padding-top: 35vh;
+  padding-bottom: 20vh;
   min-height: 100vh;
   background-color: white;
   display: -webkit-box;
@@ -81,6 +85,7 @@ section.skills {
     vertical-align: top; }
 
 section.portfolio {
+  padding-top: 20vh;
   min-height: 10vh;
   background-color: white; }
 
