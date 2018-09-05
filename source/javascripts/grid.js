@@ -195,7 +195,7 @@ var Grid = (function() {
 			minHeight : 500,
 			speed : 350,
 			easing : 'ease',
-			showVisitButton : true
+			showVisitButton : false
 		};
 
 	function init( config ) {

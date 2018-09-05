@@ -88,6 +88,10 @@ section.skills {
 }
 
 section.portfolio {
+	h1 {
+		text-align: center;
+		vertical-align: top;
+	}
 	padding-top: 20vh;
 	min-height: 10vh;
 	background-color: white;
@@ -123,18 +127,6 @@ section.footer {
 		justify-content: space-around;
 	}
 
-}
-.conform {
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: center;
-	align-items: center;
-	input {
-		width: 60%;
-	}
-	textarea {
-		width: 60%;
-	}
 }
 
 .projelement {

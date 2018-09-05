@@ -15,11 +15,11 @@
 
 .og-grid li > a,
 .og-grid li > a img {
-	border: none;
+	border-radius: 10%;
 	outline: none;
 	display: block;
 	position: relative;
-	max-width: 30vh;
+	max-width: 40vh;
 }
 
 .og-grid li.og-expanded > a::after {
