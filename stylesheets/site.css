@@ -88,6 +88,9 @@ section.portfolio {
   padding-top: 20vh;
   min-height: 10vh;
   background-color: white; }
+  section.portfolio h1 {
+    text-align: center;
+    vertical-align: top; }
 
 section.contact {
   height: 40vh;
@@ -143,25 +146,6 @@ section.footer {
   .gridelement p {
     -ms-flex-pack: distribute;
         justify-content: space-around; }
-
-.conform {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center; }
-  .conform input {
-    width: 60%; }
-  .conform textarea {
-    width: 60%; }
 
 .projelement img {
   border-radius: 30px; }
