@@ -1,1 +1,8 @@
-// This is where it all goes :)
+function hamburger() {
+    var x = document.getElementById("bar");
+    if (x.className === "navbar") {
+        x.className += " responsive";
+    } else {
+        x.className = "navbar";
+    }
+}
