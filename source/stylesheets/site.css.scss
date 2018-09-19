@@ -146,7 +146,7 @@ section.footer {
 	max-height: 30%;
 	display: flex;
 	flex-flow: row nowrap;
-	justify-content: space-around;
+	justify-content: center;
 }
 
 
@@ -376,6 +376,9 @@ button {
 		display: none;
 	}
 
+	.navbar {
+		justify-content: space-between;
+	}
 	.navbar a:not(:first-child) {display: none;}
 	.navbar a.icon {
 		float: right;
