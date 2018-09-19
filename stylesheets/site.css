@@ -166,8 +166,9 @@ section.footer {
   -webkit-box-direction: normal;
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around; }
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
 
 /* Links inside the navbar */
 .navbar a {
@@ -363,6 +364,11 @@ button {
   .timeline ol li:not(:last-child)::after,
   .timeline .arrows {
     display: none; }
+
+  .navbar {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
 
   .navbar a:not(:first-child) {
     display: none; }
