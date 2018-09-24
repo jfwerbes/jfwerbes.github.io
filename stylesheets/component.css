@@ -7,7 +7,6 @@
 }
 
 .og-grid li {
-	cursor: pointer;
 	display: inline-block;
 	margin: 10px 5px 0 5px;
 	vertical-align: top;
@@ -16,6 +15,7 @@
 
 .og-grid li > a,
 .og-grid li > a img {
+	cursor: pointer;
 	border-radius: 10%;
 	outline: none;
 	display: block;
