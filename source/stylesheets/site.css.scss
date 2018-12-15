@@ -85,6 +85,34 @@ section.skills {
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: space-between;
+
+	/* Skills grid */
+	.grid {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+	}
+
+	.gridelement {
+		img {
+			align-self: center;
+		}
+		display: flex;
+		flex-flow: column wrap;
+		max-width:15%;
+
+		p {
+			justify-content: space-around;
+		}
+
+	}
+
+	.projelement {
+		img{
+			border-radius:30px;
+		}
+	}
+
 }
 
 section.portfolio {
@@ -110,30 +138,7 @@ section.footer {
 	flex-flow: column nowrap;
 	justify-content: center;
 }
-.grid {
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-around;
-}
-.gridelement {
-	img {
-		align-self: center;
-	}
-	display: flex;
-	flex-flow: column wrap;
-	max-width:15%;
 
-	p {
-		justify-content: space-around;
-	}
-
-}
-
-.projelement {
-	img{
-		border-radius:30px;
-	}
-}
 
 /* The navigation bar */
 .navbar {
@@ -176,36 +181,33 @@ button {
 	outline: none;
 }
 
-/* javascript timeline */
+
+
+
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .jtime {
 
 	background: #c8be64;
 	padding: 50px 0;
 	color: white;
-}
+	h1 {
+		font-size: 2.5rem;
+	}
+	h2 {
+		font-size: 1.3rem;
+	}
 
-.jtime .container {
-	width: 90%;
-	max-width: 1200px;
-	margin: 0 auto;
-	text-align: center;
-}
-
-.jtime h1 {
-	font-size: 2.5rem;
-}
-
-.jtime h2 {
-	font-size: 1.3rem;
-}
-
-
-/* TIMELINE
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.timeline {
-	white-space: nowrap;
-	overflow-x: hidden;
+	.container {
+		width: 90%;
+		max-width: 1200px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.timeline {
+		white-space: nowrap;
+		overflow-x: hidden;
+	}
 }
 
 .timeline ol {
@@ -297,7 +299,7 @@ button {
 
 /* TIMELINE ARROWS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
+/*
 .timeline .arrows {
 	display: flex;
 	justify-content: center;
@@ -315,7 +317,7 @@ button {
 .timeline .arrows img {
 	width: 45px;
 	height: 45px;
-}
+}*/
 
 
 /* GENERAL MEDIA QUERIES
