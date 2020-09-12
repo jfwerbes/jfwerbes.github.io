@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title>Jovan</title>
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <script src="/javascripts/site.js"></script>
+  </head>
+  <body>
+    <a name="header"></a>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="navbar" id="bar">
+	<a href="#header" class="active">home</a>
+	<a href="#about">about</a>
+	<a href="#skills">skills</a>
+	<a href="#cv">cv</a>
+	<a href="#portfolio">portfolio</a>
+	<a href="#contact">contact</a>
+	<a href="javascript:void(0);" class="icon" onclick="hamburger()">
+		<i class="fa fa-bars"></i>
+	</a>
+</div>
+
+<section class="header">
+	<figure>
+		<image src='./images/jovan.jpg' alt='profilepic'>
+	</figure>
+
+	<h1>This is the personal website of Jovan Werbes</h1>
+
+</section>
+<a name="about"></a>
+<section class="about">
+	<h1>About</h1>
+	<p>
+	I am a UBC computer science graduate currently working as a full stack developer intern. In my spare time I enjoy making music, graphic design, outdoor activities and fitness. My best friend is a meathead dog named Brutus.
+	</p>
+	<figure>
+		<image src='./images/car.jpg' alt='profilepic'>
+	</figure>
+
+</section>
+
+
+
+<a name="skills"></a>
+<section class="skills">
+	<h1>Skills</h1>
+
+	<div class="grid">
+		<div class="gridelement">
+			<img src='./images/pslogo.jpg' alt='pslogo'>
+			<h2>
+				Photoshop
+			</h2>
+			<p>I have worked with photoshop for around 5 years and am comfortable using it.</p>
+		</div>
+		<div class="gridelement">
+			<img src='./images/html.png' alt='htmlogo'>
+			<h2>
+				HTML & CSS
+			</h2>
+			<p>I am proficient in HTML & CSS and built this site from scratch.</p>
+		</div>
+		<div class="gridelement">
+			<img src='./images/google.png' alt='gologo'>
+			<h2>
+				Go (Golang)
+			</h2>
+			<p>I have built a few distributed systems with golang including a blockchain based art network and a torrenting network that utilizes onion routing.</p>
+		</div>
+		<div class="gridelement">
+			<img src='./images/ruby.png' alt='rubylogo'>
+			<h2>
+				Ruby
+			</h2>
+			<p>I have worked with Ruby and Ruby on Rails.</p>
+		</div>
+
+	</div>	
+	<div class="grid">
+		<div class="gridelement">
+			<img src='./images/java.png' alt='javalogo'>
+			<h2>
+				Java
+			</h2>
+			<p>I have worked extensively with java.</p>
+		</div>
+
+		<div class="gridelement">
+			<img src='./images/javascript.png' alt='javascript'>
+			<h2>
+				JavaScript
+			</h2>
+			<p>I work with JavaScript on a regular basis building webapps.</p>
+		</div>
+		<div class="gridelement">
+			<img src='./images/git.png' alt='git'>
+			<h2>
+				Git/Mercurial
+			</h2>
+			<p>I am familiar with both versions of version control and use them regulary.</p>
+		</div>
+		<div class="gridelement">
+			<img src='./images/sql.png' alt='sql'>
+			<h2>
+				SQL/SQL server
+			</h2>
+			<p>I regulary write SQL queries and am also comfortable with Microsoft's SQL Management studio.</p>
+		</div>
+	</div>	
+
+</section>
+<a name="cv"></a>
+<section class="jtime">
+
+	<div class="container">
+		<h1>My Timeline 
+		</h1>
+	</div>
+</section>
+
+<section class="timeline">
+	<ol>
+		<li>
+			<div>
+				<time>2012</time> Graduated from Seycove Secondary, started at UBC in arts. </div>
+		</li>
+		<li>
+			<div>
+				<time>2014</time> Found true calling and switched to computer science. </div>
+		</li>
+		<li>
+			<div>
+				<time>2017</time> Started working for Ecomm as a 911 operator.</div>
+		</li>
+
+		<li>
+			<div>
+				<time>2018</time> Graduated from UBC computer science, built this website.      </div>
+		</li>
+		<li>
+			<div>
+				<time>Late 2018</time> Started working for Filmrobot systems on a 3 month internship. </div>
+		</li>
+		<li></li>
+	</ol>
+
+</section>
+
+<a name="portfolio"></a>
+<section class="portfolio">
+
+	<h1>Portfolio</h1>
+	<link rel="stylesheet" type="text/css" href="stylesheets/default.css" />
+	<link rel="stylesheet" type="text/css" href="stylesheets/component.css" />
+	<script src="javascripts/modernizr.custom.js"></script>
+
+	<div class="container"> 
+		<div class="main">      
+			<ul id="og-grid" class="og-grid">
+				<li>
+					<a data-largesrc="./images/watr.png" data-title="Watr" data-description="Watr is a social media network based on the concept of water fountains, built in ROR. The webapp pulls fountain data from Vancouver's public data set.">
+						<img src="./images/watr.png" alt="img01"/>
+					</a>
+				</li>
+
+				<li>
+					<a data-largesrc="./images/OneStreamsmall.jpg" data-title="OneStream" data-description="Onestream is a consolidated music app built in Java. It combines your Spotify, Soundcloud and physical libraries so that you can make combined playlists and ease multitasking.">
+						<img src="./images/OneStreamsmall.jpg" alt="img02"/>
+					</a>
+				</li>
+				<li>
+					<a data-largesrc="./images/mesh.png" data-title="Mesh Project" data-description="A graphical modelling application that subdivides meshes built in C++. Works using the butterfly subdivision algorithm.">
+						<img src="./images/mesh.png" alt="img03"/>
+					</a>
+				</li>
+				<li>
+					<a data-largesrc="./images/torproj.png" data-title="TOR p2p" data-description="A peer to peer sharing network built with onion routing for end user protection. It is built in Golang and uses a hybrid of RSA and AES encyption.">
+						<img src="./images/torproj.png" alt="img04"/>
+					</a>
+				</li>
+
+			</ul>                                   
+		</div>
+	</div><!-- /container -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="javascripts/grid.js"></script>
+	<script>
+		$(function() {
+			Grid.init();
+		});
+	</script>
+
+</section>
+
+<section class="contact">
+	<h1><a name="contact">Contact</h1>
+	<p> jfwerbes@gmail.com</p>
+</section>
+
+<section class="footer">
+	<p>
+	Designed and Built by Jovan Werbes © 2018
+	</p>
+	<!---small-picture-of-brutus--->
+</section>
+
+  </body>
+</html>
