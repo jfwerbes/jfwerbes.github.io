@@ -1,214 +1,693 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Jovan</title>
-    <link href="/stylesheets/site.css" rel="stylesheet" />
-    <script src="/javascripts/site.js"></script>
-  </head>
-  <body>
-    <a name="header"></a>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="navbar" id="bar">
-	<a href="#header" class="active">home</a>
-	<a href="#about">about</a>
-	<a href="#skills">skills</a>
-	<a href="#cv">cv</a>
-	<a href="#portfolio">portfolio</a>
-	<a href="#contact">contact</a>
-	<a href="javascript:void(0);" class="icon" onclick="hamburger()">
-		<i class="fa fa-bars"></i>
-	</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jovan Werbes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dt-bg-hard': '#1D2021',
+            'dt-bg':      '#282828',
+            'dt-bg-soft': '#32302F',
+            'dt-bg-1':    '#3C3836',
+            'dt-bg-2':    '#504945',
+            'dt-bg-3':    '#665C54',
+            'dt-fg':      '#FDF4C1',
+            'dt-fg-1':    '#EBDBB2',
+            'dt-fg-2':    '#D5C4A1',
+            'dt-fg-4':    '#A89984',
+            'dt-medium':  '#928374',
+            'dt-yellow':  '#FABD2F',
+            'dt-orange':  '#FE8019',
+            'dt-green':   '#B8BB26',
+            'dt-aqua':    '#8EC07C',
+            'dt-blue':    '#83A598',
+            'dt-cyan':    '#3FD7E5',
+            'dt-red':     '#FB4933',
+            'dt-purple':  '#D3869B',
+            'dt-sienna':  '#DD6F48',
+          },
+          fontFamily: {
+            display: ['Space Grotesk', 'sans-serif'],
+            body:    ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, h4, .font-display { font-family: 'Space Grotesk', sans-serif; }
 
-<section class="header">
-	<figure>
-		<image src='./images/jovan.jpg' alt='profilepic'>
-	</figure>
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #1D2021; }
+    ::-webkit-scrollbar-thumb { background: #504945; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #FABD2F; }
 
-	<h1>This is the personal website of Jovan Werbes</h1>
+    /* ── Topo canvas ──────────────────────────────────────── */
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
 
-</section>
-<a name="about"></a>
-<section class="about">
-	<h1>About</h1>
-	<p>
-	I am a UBC computer science graduate currently working as a full stack developer intern. In my spare time I enjoy making music, graphic design, outdoor activities and fitness. My best friend is a meathead dog named Brutus.
-	</p>
-	<figure>
-		<image src='./images/car.jpg' alt='profilepic'>
-	</figure>
+    /* ── Nav ─────────────────────────────────────────────── */
+    .nav-glass {
+      background: rgba(29, 32, 33, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(250, 189, 47, 0.08);
+    }
+    .animated-underline { position: relative; }
+    .animated-underline::after {
+      content: '';
+      position: absolute;
+      width: 0; height: 1px;
+      bottom: -2px; left: 0;
+      background: #FABD2F;
+      transition: width 0.25s ease;
+    }
+    .animated-underline:hover::after { width: 100%; }
 
-</section>
+    /* ── Scroll reveal ───────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* ── Cards ───────────────────────────────────────────── */
+    .card-lift {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
 
+    /* ── Toolkit shimmer ─────────────────────────────────── */
+    .tool-card { position: relative; overflow: hidden; }
+    .tool-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(250,189,47,0.04) 50%, transparent 70%);
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+    .tool-card:hover::after { transform: translateX(100%); }
 
-<a name="skills"></a>
-<section class="skills">
-	<h1>Skills</h1>
+    /* ── Timeline ────────────────────────────────────────── */
+    .tl-item { position: relative; padding-left: 1.75rem; }
+    .tl-item::before {
+      content: '';
+      position: absolute; left: 0; top: 7px;
+      width: 11px; height: 11px;
+      border-radius: 50%;
+      background: #FABD2F;
+      box-shadow: 0 0 0 3px rgba(250,189,47,0.15);
+    }
+    .tl-item:not(:last-child)::after {
+      content: '';
+      position: absolute; left: 4.5px; top: 19px;
+      width: 1.5px; bottom: -2.5rem;
+      background: linear-gradient(to bottom, rgba(250,189,47,0.35), transparent);
+    }
 
-	<div class="grid">
-		<div class="gridelement">
-			<img src='./images/pslogo.jpg' alt='pslogo'>
-			<h2>
-				Photoshop
-			</h2>
-			<p>I have worked with photoshop for around 5 years and am comfortable using it.</p>
-		</div>
-		<div class="gridelement">
-			<img src='./images/html.png' alt='htmlogo'>
-			<h2>
-				HTML & CSS
-			</h2>
-			<p>I am proficient in HTML & CSS and built this site from scratch.</p>
-		</div>
-		<div class="gridelement">
-			<img src='./images/google.png' alt='gologo'>
-			<h2>
-				Go (Golang)
-			</h2>
-			<p>I have built a few distributed systems with golang including a blockchain based art network and a torrenting network that utilizes onion routing.</p>
-		</div>
-		<div class="gridelement">
-			<img src='./images/ruby.png' alt='rubylogo'>
-			<h2>
-				Ruby
-			</h2>
-			<p>I have worked with Ruby and Ruby on Rails.</p>
-		</div>
+    /* ── Section label ───────────────────────────────────── */
+    .section-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #FABD2F;
+    }
 
-	</div>	
-	<div class="grid">
-		<div class="gridelement">
-			<img src='./images/java.png' alt='javalogo'>
-			<h2>
-				Java
-			</h2>
-			<p>I have worked extensively with java.</p>
-		</div>
+    /* ── Profile photo glow ──────────────────────────────── */
+    .profile-glow {
+      box-shadow: 0 0 0 2px #FABD2F, 0 0 40px rgba(250,189,47,0.15);
+    }
 
-		<div class="gridelement">
-			<img src='./images/javascript.png' alt='javascript'>
-			<h2>
-				JavaScript
-			</h2>
-			<p>I work with JavaScript on a regular basis building webapps.</p>
-		</div>
-		<div class="gridelement">
-			<img src='./images/git.png' alt='git'>
-			<h2>
-				Git/Mercurial
-			</h2>
-			<p>I am familiar with both versions of version control and use them regulary.</p>
-		</div>
-		<div class="gridelement">
-			<img src='./images/sql.png' alt='sql'>
-			<h2>
-				SQL/SQL server
-			</h2>
-			<p>I regulary write SQL queries and am also comfortable with Microsoft's SQL Management studio.</p>
-		</div>
-	</div>	
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-dt-bg-hard text-dt-fg-1 antialiased">
 
-</section>
-<a name="cv"></a>
-<section class="jtime">
+  <!-- ── Navigation ───────────────────────────────────────── -->
+  <nav class="nav-glass fixed top-0 w-full z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#hero" class="font-display font-bold text-dt-fg text-lg tracking-tight">
+        JW<span class="text-dt-yellow">.</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-dt-fg-4">
+        <a href="#about"   class="animated-underline hover:text-dt-fg transition-colors">About</a>
+        <a href="#work"    class="animated-underline hover:text-dt-fg transition-colors">Work</a>
+        <a href="#toolkit" class="animated-underline hover:text-dt-fg transition-colors">AI Toolkit</a>
+        <a href="#journey" class="animated-underline hover:text-dt-fg transition-colors">Journey</a>
+        <a href="#contact" class="bg-dt-yellow text-dt-bg-hard px-4 py-1.5 rounded font-semibold hover:bg-dt-orange transition-colors font-display text-xs tracking-wide">
+          Contact
+        </a>
+      </div>
+      <button id="mobile-btn" class="md:hidden text-dt-fg-4 hover:text-dt-fg p-1">
+        <svg id="icon-menu" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-5 flex flex-col gap-4 text-sm font-medium text-dt-fg-4 border-t border-dt-bg-1 pt-4">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#toolkit">AI Toolkit</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-	<div class="container">
-		<h1>My Timeline 
-		</h1>
-	</div>
-</section>
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-dt-bg-hard">
 
-<section class="timeline">
-	<ol>
-		<li>
-			<div>
-				<time>2012</time> Graduated from Seycove Secondary, started at UBC in arts. </div>
-		</li>
-		<li>
-			<div>
-				<time>2014</time> Found true calling and switched to computer science. </div>
-		</li>
-		<li>
-			<div>
-				<time>2017</time> Started working for Ecomm as a 911 operator.</div>
-		</li>
+    <!-- Topographic contour canvas -->
+    <canvas id="hero-canvas"></canvas>
 
-		<li>
-			<div>
-				<time>2018</time> Graduated from UBC computer science, built this website, worked for Filmrobot systems on a 3 month contract.</div>
-		</li>
-		<li>
-			<div>
-				<time>2019</time> Started programming satellite ground stations at MDA. </div>
-		</li>
-		<li></li>
-	</ol>
+    <!-- Content -->
+    <div class="relative z-10 w-full max-w-5xl mx-auto px-6 pt-24 pb-16">
+      <div class="flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
 
-</section>
+        <!-- Text -->
+        <div class="md:flex-1 text-center md:text-left">
+          <p class="section-label mb-5" style="opacity:0;animation:fadeIn 0.8s ease-out 0.2s forwards;">
+            Sr. Technical Program Manager
+          </p>
+          <h1 class="font-display font-bold text-5xl md:text-6xl lg:text-7xl text-dt-fg mb-5 leading-none tracking-tight"
+              style="opacity:0;animation:fadeUp 0.8s ease-out 0.4s forwards;">
+            Jovan Werbes
+          </h1>
+          <p class="text-base md:text-lg text-dt-fg-2 mb-8 max-w-lg leading-relaxed mx-auto md:mx-0"
+             style="opacity:0;animation:fadeUp 0.8s ease-out 0.7s forwards;">
+            7 years turning complex programs into clear outcomes. Currently leading AI transformation at
+            <span class="text-dt-yellow font-medium">Highspot</span> — making AI stick, not just ship.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start"
+               style="opacity:0;animation:fadeUp 0.8s ease-out 1s forwards;">
+            <a href="#about" class="bg-dt-yellow text-dt-bg-hard font-display font-semibold px-7 py-3 rounded-lg hover:bg-dt-orange transition-colors">
+              Learn More
+            </a>
+            <a href="#contact" class="border border-dt-bg-2 text-dt-fg-2 font-display font-semibold px-7 py-3 rounded-lg hover:border-dt-yellow hover:text-dt-fg transition-colors">
+              Get in Touch
+            </a>
+          </div>
+        </div>
 
-<a name="portfolio"></a>
-<section class="portfolio">
+        <!-- Photo -->
+        <div class="flex-shrink-0" style="opacity:0;animation:fadeIn 1s ease-out 0.5s forwards;">
+          <img src="Profile.jpg"
+               alt="Jovan Werbes"
+               class="w-44 h-44 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full object-cover profile-glow">
+        </div>
 
-	<h1>Portfolio</h1>
-	<link rel="stylesheet" type="text/css" href="stylesheets/default.css" />
-	<link rel="stylesheet" type="text/css" href="stylesheets/component.css" />
-	<script src="javascripts/modernizr.custom.js"></script>
+      </div>
+    </div>
 
-	<div class="container"> 
-		<div class="main">      
-			<ul id="og-grid" class="og-grid">
-				<li>
-					<a data-largesrc="./images/watr.png" data-title="Watr" data-description="Watr is a social media network based on the concept of water fountains, built in ROR. The webapp pulls fountain data from Vancouver's public data set.">
-						<img src="./images/watr.png" alt="img01"/>
-					</a>
-				</li>
+    <!-- Scroll hint -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+         style="opacity:0;animation:fadeIn 1s ease-out 1.5s forwards;">
+      <span class="section-label" style="font-size:0.58rem;">Scroll</span>
+      <div class="w-px h-7 bg-gradient-to-b from-dt-yellow to-transparent"></div>
+    </div>
+  </section>
 
-				<li>
-					<a data-largesrc="./images/OneStreamsmall.jpg" data-title="OneStream" data-description="Onestream is a consolidated music app built in Java. It combines your Spotify, Soundcloud and physical libraries so that you can make combined playlists and ease multitasking.">
-						<img src="./images/OneStreamsmall.jpg" alt="img02"/>
-					</a>
-				</li>
-				<li>
-					<a data-largesrc="./images/mesh.png" data-title="Mesh Project" data-description="A graphical modelling application that subdivides meshes built in C++. Works using the butterfly subdivision algorithm.">
-						<img src="./images/mesh.png" alt="img03"/>
-					</a>
-				</li>
-				<li>
-					<a data-largesrc="./images/torproj.png" data-title="TOR p2p" data-description="A peer to peer sharing network built with onion routing for end user protection. It is built in Golang and uses a hybrid of RSA and AES encyption.">
-						<img src="./images/torproj.png" alt="img04"/>
-					</a>
-				</li>
+  <!-- ── About ─────────────────────────────────────────────── -->
+  <section id="about" class="py-28 bg-dt-bg">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
 
-			</ul>                                   
-		</div>
-	</div><!-- /container -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="javascripts/grid.js"></script>
-	<script>
-		$(function() {
-			Grid.init();
-		});
-	</script>
+        <div class="reveal">
+          <p class="section-label mb-4">Who I Am</p>
+          <h2 class="font-display font-bold text-4xl md:text-5xl text-dt-fg mb-6 leading-tight">
+            I make <span class="text-dt-yellow">AI</span> work inside organizations, not just inside demos.
+          </h2>
+          <p class="text-dt-fg-2 text-lg leading-relaxed mb-5">
+            7 years running technical programs across engineering, cloud infrastructure, and AI initiatives at companies like lululemon, Hitachi Energy, and Highspot. I close the gap between what AI can do and what organizations are actually ready to absorb.
+          </p>
+          <p class="text-dt-fg-4 leading-relaxed">
+            My edge is being genuinely technical — a CS degree, time as a software engineer, hands-on experience with the tooling — without losing sight of the people and processes that determine whether any of it actually lands.
+          </p>
+        </div>
 
-</section>
+        <div class="reveal" style="transition-delay:0.15s;">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-dt-bg-soft border border-dt-bg-2 rounded-xl p-6 card-lift text-center">
+              <div class="text-dt-yellow font-display font-bold text-3xl mb-1">30%</div>
+              <p class="text-dt-fg-4 text-sm">Cloud cost reduction driven at scale</p>
+            </div>
+            <div class="bg-dt-bg-soft border border-dt-bg-2 rounded-xl p-6 card-lift text-center">
+              <div class="text-dt-aqua font-display font-bold text-3xl mb-1">8+</div>
+              <p class="text-dt-fg-4 text-sm">Engineering & vendor teams led simultaneously</p>
+            </div>
+            <div class="bg-dt-bg-soft border border-dt-bg-2 rounded-xl p-6 card-lift text-center">
+              <div class="text-dt-orange font-display font-bold text-3xl mb-1">50%+</div>
+              <p class="text-dt-fg-4 text-sm">Critical vulnerabilities eliminated via CI/CD</p>
+            </div>
+            <div class="bg-dt-bg-soft border border-dt-bg-2 rounded-xl p-6 card-lift text-center">
+              <div class="text-dt-green font-display font-bold text-3xl mb-1">2×</div>
+              <p class="text-dt-fg-4 text-sm">Team throughput improvement while raising quality</p>
+            </div>
+          </div>
+        </div>
 
-<section class="contact">
-	<h1><a name="contact">Contact</h1>
-	<p> jfwerbes@gmail.com</p>
-</section>
+      </div>
+    </div>
+  </section>
 
-<section class="footer">
-	<p>
-	Designed and built by Jovan Werbes © 2020
-	</p>
-	<!---small-picture-of-brutus--->
-</section>
+  <!-- ── What I Do ─────────────────────────────────────────── -->
+  <section id="work" class="py-28 bg-dt-bg-soft">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <p class="section-label mb-4">What I Do</p>
+        <h2 class="font-display font-bold text-4xl md:text-5xl text-dt-fg">Areas of Focus</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
 
-  </body>
+        <div class="bg-dt-bg border-l-2 border-dt-yellow rounded-xl p-6 card-lift reveal" style="transition-delay:0.05s;">
+          <svg class="w-7 h-7 mb-4 text-dt-yellow" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+          </svg>
+          <h3 class="font-display font-semibold text-lg text-dt-fg mb-2">AI Transformation</h3>
+          <p class="text-dt-fg-4 text-sm leading-relaxed">Building adoption strategies that create measurable change — north-star metrics, governance, change management, and mitigating vendor lock-in before it becomes a problem.</p>
+        </div>
+
+        <div class="bg-dt-bg border-l-2 border-dt-orange rounded-xl p-6 card-lift reveal" style="transition-delay:0.1s;">
+          <svg class="w-7 h-7 mb-4 text-dt-orange" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>
+          </svg>
+          <h3 class="font-display font-semibold text-lg text-dt-fg mb-2">Program & Delivery</h3>
+          <p class="text-dt-fg-4 text-sm leading-relaxed">Complex multi-stakeholder programs from roadmap to release — Agile and Waterfall delivery, risk management, and the kind of stakeholder alignment that doesn't require constant escalation.</p>
+        </div>
+
+        <div class="bg-dt-bg border-l-2 border-dt-aqua rounded-xl p-6 card-lift reveal" style="transition-delay:0.15s;">
+          <svg class="w-7 h-7 mb-4 text-dt-aqua" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+          </svg>
+          <h3 class="font-display font-semibold text-lg text-dt-fg mb-2">Cloud & Cost Optimization</h3>
+          <p class="text-dt-fg-4 text-sm leading-relaxed">Global capacity planning, cloud cost forecasting, and remediation programs — including a 30% spend reduction across SaaS and infrastructure platforms at lululemon.</p>
+        </div>
+
+        <div class="bg-dt-bg border-l-2 border-dt-blue rounded-xl p-6 card-lift reveal" style="transition-delay:0.2s;">
+          <svg class="w-7 h-7 mb-4 text-dt-blue" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+          <h3 class="font-display font-semibold text-lg text-dt-fg mb-2">Operations & Reliability</h3>
+          <p class="text-dt-fg-4 text-sm leading-relaxed">Incident response, unified triage workflows, SLO/SLA alignment, and release management — turning reactive on-call chaos into structured, measurable operations.</p>
+        </div>
+
+        <div class="bg-dt-bg border-l-2 border-dt-purple rounded-xl p-6 card-lift reveal" style="transition-delay:0.25s;">
+          <svg class="w-7 h-7 mb-4 text-dt-purple" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+          <h3 class="font-display font-semibold text-lg text-dt-fg mb-2">Security & Compliance</h3>
+          <p class="text-dt-fg-4 text-sm leading-relaxed">CI/CD vulnerability gating, infrastructure-as-code, SDLC enforcement — cutting critical vulnerabilities by over 50% and building the guardrails that keep delivery moving without cutting corners.</p>
+        </div>
+
+        <div class="bg-dt-bg border-l-2 border-dt-sienna rounded-xl p-6 card-lift reveal" style="transition-delay:0.3s;">
+          <svg class="w-7 h-7 mb-4 text-dt-sienna" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+          <h3 class="font-display font-semibold text-lg text-dt-fg mb-2">Change Enablement</h3>
+          <p class="text-dt-fg-4 text-sm leading-relaxed">The hard part of any transformation isn't the technology — it's the people. Building the habits, processes, and incentives that make new ways of working actually stick.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AI Toolkit ─────────────────────────────────────────── -->
+  <section id="toolkit" class="py-28 bg-dt-bg-hard">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <p class="section-label mb-4">AI Toolkit</p>
+        <h2 class="font-display font-bold text-4xl md:text-5xl text-dt-fg mb-4">Tools I Pilot Daily</h2>
+        <p class="text-dt-fg-4 max-w-md mx-auto text-sm leading-relaxed">
+          Not surface-level familiarity. These are the tools I push hard, evaluate critically, and use to move faster and think deeper.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <div class="tool-card bg-dt-bg border border-dt-bg-2 rounded-xl p-6 card-lift reveal" style="transition-delay:0.05s;">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xs font-display font-bold flex-shrink-0 text-dt-cyan" style="background:#205161;">CC</div>
+            <div>
+              <h3 class="font-display font-semibold text-dt-fg">Claude</h3>
+              <p class="text-dt-fg-4 text-sm mt-1 leading-relaxed">Deep research, strategy documents, and complex reasoning where nuance and accuracy matter more than speed.</p>
+            </div>
+          </div>
+          <div class="border-t border-dt-bg-2 pt-3">
+            <span class="text-xs text-dt-cyan font-medium font-display tracking-wide">Primary reasoning engine</span>
+          </div>
+        </div>
+
+        <div class="tool-card bg-dt-bg border border-dt-bg-2 rounded-xl p-6 card-lift reveal" style="transition-delay:0.1s;">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xs font-display font-bold flex-shrink-0 text-dt-purple" style="background:#4E3D45;">CU</div>
+            <div>
+              <h3 class="font-display font-semibold text-dt-fg">Cursor</h3>
+              <p class="text-dt-fg-4 text-sm mt-1 leading-relaxed">AI-native editor for rapid prototyping, automation scripts, and hands-on technical evaluation of developer workflows.</p>
+            </div>
+          </div>
+          <div class="border-t border-dt-bg-2 pt-3">
+            <span class="text-xs text-dt-purple font-medium font-display tracking-wide">Agentic coding & prototyping</span>
+          </div>
+        </div>
+
+        <div class="tool-card bg-dt-bg border border-dt-bg-2 rounded-xl p-6 card-lift reveal" style="transition-delay:0.15s;">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xs font-display font-bold flex-shrink-0 text-dt-blue" style="background:#2B3C44;">GE</div>
+            <div>
+              <h3 class="font-display font-semibold text-dt-fg">Gemini</h3>
+              <p class="text-dt-fg-4 text-sm mt-1 leading-relaxed">Long-context analysis, multimodal tasks, and cross-referencing large document sets at speed.</p>
+            </div>
+          </div>
+          <div class="border-t border-dt-bg-2 pt-3">
+            <span class="text-xs text-dt-blue font-medium font-display tracking-wide">Long-context & multimodal</span>
+          </div>
+        </div>
+
+        <div class="tool-card bg-dt-bg border border-dt-bg-2 rounded-xl p-6 card-lift reveal" style="transition-delay:0.2s;">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xs font-display font-bold flex-shrink-0 text-dt-green" style="background:#232B0F;">NL</div>
+            <div>
+              <h3 class="font-display font-semibold text-dt-fg">NotebookLM</h3>
+              <p class="text-dt-fg-4 text-sm mt-1 leading-relaxed">Synthesizing research, internal documents, and meeting transcripts into structured, actionable intelligence.</p>
+            </div>
+          </div>
+          <div class="border-t border-dt-bg-2 pt-3">
+            <span class="text-xs text-dt-green font-medium font-display tracking-wide">Knowledge synthesis</span>
+          </div>
+        </div>
+
+        <div class="tool-card bg-dt-bg border border-dt-bg-2 rounded-xl p-6 card-lift reveal" style="transition-delay:0.25s;">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xs font-display font-bold flex-shrink-0 text-dt-orange" style="background:#613620;">OC</div>
+            <div>
+              <h3 class="font-display font-semibold text-dt-fg">OpenClaw</h3>
+              <p class="text-dt-fg-4 text-sm mt-1 leading-relaxed">Specialized AI workflows and automation for operational tasks and process improvement.</p>
+            </div>
+          </div>
+          <div class="border-t border-dt-bg-2 pt-3">
+            <span class="text-xs text-dt-orange font-medium font-display tracking-wide">Workflow automation</span>
+          </div>
+        </div>
+
+        <div class="bg-dt-bg border border-dashed border-dt-bg-3 rounded-xl p-6 flex flex-col justify-center items-center text-center reveal" style="transition-delay:0.3s;">
+          <p class="text-dt-fg-4 text-sm mb-1">The stack evolves constantly.</p>
+          <p class="text-dt-medium text-xs leading-relaxed">These are the current daily drivers — the list grows as the field does.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Journey ────────────────────────────────────────────── -->
+  <section id="journey" class="py-28 bg-dt-bg">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <p class="section-label mb-4">Journey</p>
+        <h2 class="font-display font-bold text-4xl md:text-5xl text-dt-fg">The Arc</h2>
+      </div>
+
+      <div class="space-y-10">
+
+        <div class="tl-item reveal" style="transition-delay:0.05s;">
+          <span class="font-display font-semibold text-sm text-dt-yellow">2012 — 2018</span>
+          <h3 class="font-display font-semibold text-xl text-dt-fg mt-1 mb-1">UBC Computer Science</h3>
+          <p class="text-dt-fg-4 text-sm leading-relaxed">Started in arts, found the pull of systems thinking too strong to ignore. Switched to CS and graduated with a degree that taught me how to decompose hard problems — a habit that's defined every job since.</p>
+        </div>
+
+        <div class="tl-item reveal" style="transition-delay:0.08s;">
+          <span class="font-display font-semibold text-sm text-dt-fg-4">2017 — 2018</span>
+          <h3 class="font-display font-semibold text-xl text-dt-fg mt-1 mb-1">E-Comm 911 Operator</h3>
+          <p class="text-dt-fg-4 text-sm leading-relaxed">Answered 911 calls while finishing school — translating high-stakes emergencies into clear, actionable reports for first responders. An unexpected foundation for calm, precise communication under pressure.</p>
+        </div>
+
+        <div class="tl-item reveal" style="transition-delay:0.11s;">
+          <span class="font-display font-semibold text-sm text-dt-orange">2019 — 2020</span>
+          <h3 class="font-display font-semibold text-xl text-dt-fg mt-1 mb-1">Software Engineer — MDA Systems</h3>
+          <p class="text-dt-fg-4 text-sm leading-relaxed">Designed Kubernetes-based microservices for satellite ground stations under government and ITAR compliance. Mission-critical software with real consequences — where I first understood what it means to ship with no margin for error.</p>
+        </div>
+
+        <div class="tl-item reveal" style="transition-delay:0.14s;">
+          <span class="font-display font-semibold text-sm text-dt-aqua">2020 — 2022</span>
+          <h3 class="font-display font-semibold text-xl text-dt-fg mt-1 mb-1">Technical Project Manager — Hitachi Energy</h3>
+          <p class="text-dt-fg-4 text-sm leading-relaxed">First TPM role: led a monolith-to-microservices modernization across 3 engineering teams, reducing a 2-week database operation to 5 minutes. Doubled team throughput. Recovered a failing program by restructuring its dependencies from scratch.</p>
+        </div>
+
+        <div class="tl-item reveal" style="transition-delay:0.17s;">
+          <span class="font-display font-semibold text-sm text-dt-blue">2022 — 2025</span>
+          <h3 class="font-display font-semibold text-xl text-dt-fg mt-1 mb-1">Technical Program Manager — lululemon</h3>
+          <p class="text-dt-fg-4 text-sm leading-relaxed">Led engineering practice, cloud operations, and reliability programs across 8+ engineering and vendor teams globally. Reduced cloud spend by 30%, cut critical vulnerabilities by 50%+, and unified incident management across QA, Support, and Engineering.</p>
+          <!-- CSA callout -->
+          <div class="mt-3 inline-flex items-center gap-2 bg-dt-bg-1 border border-dt-bg-2 rounded-lg px-3 py-2">
+            <span class="text-dt-yellow text-xs">★</span>
+            <span class="text-dt-fg-2 text-xs font-medium">CSA Deep Space Food Challenge — Round One Winner, 2021</span>
+          </div>
+        </div>
+
+        <div class="tl-item reveal" style="transition-delay:0.2s;">
+          <span class="font-display font-semibold text-sm text-dt-purple">2025 — 2026</span>
+          <h3 class="font-display font-semibold text-xl text-dt-fg mt-1 mb-1">Technical Product Owner — EZScript (Freelance)</h3>
+          <p class="text-dt-fg-4 text-sm leading-relaxed">AI/LLM product modernization across 4 product streams. Built the backlog from scratch, coached the team through refinement, and designed a 2-year horizon that brought coherence to a fragmented product strategy.</p>
+        </div>
+
+        <div class="tl-item reveal" style="transition-delay:0.23s;">
+          <span class="font-display font-semibold text-sm text-dt-green">Feb 2026 — Now</span>
+          <h3 class="font-display font-semibold text-xl text-dt-fg mt-1 mb-1">Sr. TPM, AI Transformation — Highspot</h3>
+          <p class="text-dt-fg-4 text-sm leading-relaxed">Leading Highspot's internal AI transformation program. Building the strategy, metrics, and adoption infrastructure that turns AI from a point of curiosity into an organizational capability — including hands-on evaluation of local LLM approaches to mitigate cost and vendor risk.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ────────────────────────────────────────────── -->
+  <section id="contact" class="py-28 bg-dt-bg-hard">
+    <div class="max-w-xl mx-auto px-6 text-center reveal">
+      <p class="section-label mb-4">Contact</p>
+      <h2 class="font-display font-bold text-4xl md:text-5xl text-dt-fg mb-6">Let's Talk</h2>
+      <p class="text-dt-fg-4 mb-10 leading-relaxed">
+        Whether it's AI strategy, a program management challenge, or a conversation about where this is all going — I'm always up for it.
+      </p>
+      <a href="mailto:jfwerbes@gmail.com"
+         class="inline-flex items-center gap-3 bg-dt-yellow text-dt-bg-hard font-display font-semibold px-8 py-4 rounded-xl hover:bg-dt-orange transition-colors text-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+        jfwerbes@gmail.com
+      </a>
+      <div class="mt-8 flex justify-center gap-8">
+        <a href="https://www.linkedin.com/in/jovan-werbes/" target="_blank" rel="noopener"
+           class="text-dt-fg-4 hover:text-dt-yellow transition-colors text-sm font-medium animated-underline">
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer class="bg-dt-bg-hard border-t border-dt-bg-1 py-8">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <span class="font-display font-bold text-dt-fg-4 text-sm">JW<span class="text-dt-yellow">.</span></span>
+      <span class="text-dt-medium text-xs">Built with intention. &copy; 2026 Jovan Werbes.</span>
+    </div>
+  </footer>
+
+  <script>
+    // ── Noise flow field animation ─────────────────────────────
+    (function () {
+      const canvas = document.getElementById('hero-canvas');
+      const ctx    = canvas.getContext('2d');
+
+      const COLORS = ['#FABD2F', '#8EC07C', '#83A598', '#3FD7E5', '#D3869B', '#FE8019'];
+      const COUNT     = 280;
+      const MAX_COUNT = 520; // cap so burst clicks can't run away
+      const SPEED     = 1.1;
+      const TRAIL     = 22;
+
+      let W, H, t = 0, particles = [];
+
+      function resize() {
+        W = canvas.width  = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+      }
+
+      // Smooth pseudo-noise: sum of offset sine waves
+      function flowAngle(x, y) {
+        const s = 0.0018;
+        return (
+          Math.sin(x * s       + t * 0.40) * Math.cos(y * s * 0.7 - t * 0.30) +
+          Math.sin(x * s * 0.4 - y * s * 0.6 + t * 0.55) * 0.6 +
+          Math.cos(x * s * 1.1 + y * s * 0.9 - t * 0.20) * 0.35
+        ) * Math.PI;
+      }
+
+      class Particle {
+        // burstX/Y: click origin; burstAngle: outward direction for this particle
+        constructor(scatter, burstX, burstY, burstAngle) {
+          this.color    = COLORS[Math.floor(Math.random() * COLORS.length)];
+          this.speed    = SPEED * (0.7 + Math.random() * 0.6);
+          this.trail    = [];
+          this.age      = 0;
+          this.maxAge   = 180 + Math.floor(Math.random() * 200);
+          this.bvx      = 0; // burst velocity x
+          this.bvy      = 0; // burst velocity y
+          this.bdecay   = 0; // how fast burst fades
+
+          if (burstX !== undefined) {
+            // Burst particle: start at click, shoot outward
+            this.x      = burstX + (Math.random() - 0.5) * 6;
+            this.y      = burstY + (Math.random() - 0.5) * 6;
+            const spd   = 3.5 + Math.random() * 3.5;
+            this.bvx    = Math.cos(burstAngle) * spd;
+            this.bvy    = Math.sin(burstAngle) * spd;
+            this.bdecay = 0.91;
+            this.maxAge = 220 + Math.floor(Math.random() * 180);
+          } else {
+            this.reset(scatter);
+          }
+
+          this.trail = [{ x: this.x, y: this.y }];
+        }
+
+        reset(scatter = false) {
+          if (scatter) {
+            this.x = Math.random() * W;
+            this.y = Math.random() * H;
+          } else {
+            const side = Math.floor(Math.random() * 4);
+            if (side === 0) { this.x = Math.random() * W; this.y = -5; }
+            else if (side === 1) { this.x = W + 5; this.y = Math.random() * H; }
+            else if (side === 2) { this.x = Math.random() * W; this.y = H + 5; }
+            else { this.x = -5; this.y = Math.random() * H; }
+          }
+          this.trail  = [{ x: this.x, y: this.y }];
+          this.age    = 0;
+          this.maxAge = 180 + Math.floor(Math.random() * 220);
+          this.color  = COLORS[Math.floor(Math.random() * COLORS.length)];
+          this.bvx    = 0;
+          this.bvy    = 0;
+          this.bdecay = 0;
+        }
+
+        update() {
+          const a  = flowAngle(this.x, this.y);
+          this.x  += Math.cos(a) * this.speed + this.bvx;
+          this.y  += Math.sin(a) * this.speed + this.bvy;
+          // Burst velocity decays each frame — particle smoothly joins the flow
+          this.bvx *= this.bdecay;
+          this.bvy *= this.bdecay;
+          this.trail.push({ x: this.x, y: this.y });
+          if (this.trail.length > TRAIL) this.trail.shift();
+          this.age++;
+          const oob = this.x < -20 || this.x > W + 20 || this.y < -20 || this.y > H + 20;
+          if (oob || this.age > this.maxAge) this.reset();
+        }
+
+        draw() {
+          if (this.trail.length < 2) return;
+          const lifeFade = 1 - this.age / this.maxAge;
+          ctx.save();
+          ctx.strokeStyle = this.color;
+          ctx.lineWidth   = 0.9;
+          ctx.lineCap     = 'round';
+          for (let i = 1; i < this.trail.length; i++) {
+            const segFade  = i / this.trail.length;
+            ctx.globalAlpha = segFade * lifeFade * 0.22;
+            ctx.beginPath();
+            ctx.moveTo(this.trail[i - 1].x, this.trail[i - 1].y);
+            ctx.lineTo(this.trail[i].x,     this.trail[i].y);
+            ctx.stroke();
+          }
+          ctx.restore();
+        }
+      }
+
+      function spawnBurst(mx, my) {
+        const count = 36; // particles per click, evenly distributed radially
+        // Trim excess particles to stay under cap (remove oldest normal ones first)
+        while (particles.length > MAX_COUNT - count) particles.shift();
+        for (let i = 0; i < count; i++) {
+          const a = (i / count) * Math.PI * 2;
+          particles.push(new Particle(false, mx, my, a));
+        }
+      }
+
+      document.getElementById('hero').addEventListener('click', e => {
+        const r = canvas.getBoundingClientRect();
+        spawnBurst(e.clientX - r.left, e.clientY - r.top);
+      });
+
+      function init() {
+        particles = Array.from({ length: COUNT }, () => new Particle(true));
+      }
+
+      function loop() {
+        ctx.clearRect(0, 0, W, H);
+        t += 0.004;
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(loop);
+      }
+
+      window.addEventListener('resize', () => { resize(); init(); });
+      resize();
+      init();
+      loop();
+    }());
+
+    // ── Scroll reveal ──────────────────────────────────────────
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Mobile nav ─────────────────────────────────────────────
+    const btn    = document.getElementById('mobile-btn');
+    const menu   = document.getElementById('mobile-menu');
+    const iMenu  = document.getElementById('icon-menu');
+    const iClose = document.getElementById('icon-close');
+
+    btn.addEventListener('click', () => {
+      const open = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden', open);
+      iMenu.classList.toggle('hidden', !open);
+      iClose.classList.toggle('hidden', open);
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      iMenu.classList.remove('hidden');
+      iClose.classList.add('hidden');
+    }));
+  </script>
+
+</body>
 </html>
